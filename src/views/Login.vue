@@ -40,7 +40,7 @@
       handleSubmit () {
         if(this.username!="admin" || this.password!='123') return false;
         this.login( {username:this.username,password:this.password} ).then(()=>{
-          this.$router.push('/map')
+          this.$router.push('/')
         }).catch(error => {
           console.log(error)
         })

@@ -1,7 +1,7 @@
 const path = require('path')
 
-const BASE_URL = process.env.NODE_ENV === 'production' ? '/my-project/' : '/'
-
+//const BASE_URL = process.env.NODE_ENV === 'production' ? '/my-project/' : '/'
+const BASE_URL = process.env.NODE_ENV === 'production' ?  './' :'/'
 const resolve = dir => path.join(__dirname,dir)
 
 module.exports = {
@@ -15,6 +15,13 @@ module.exports = {
   },
   productionSourceMap:false,
   // devServer: {
-  //   proxy: 'http://localhost:3000'
+  //   proxy: {
+  //     '/api': {
+  //       /* 目标代理服务器地址 */
+  //       target: 'http://localhost:8080',
+  //       /* 允许跨域 */
+  //       changeOrigin: true,
+  //     }
+  //   }
   // }
 }
