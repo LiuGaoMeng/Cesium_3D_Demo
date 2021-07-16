@@ -8,7 +8,7 @@ import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 import 'cesium/Widgets/widgets.css'
 
-if (process.env.NODE_ENV !== 'production') require('./mock')
+if (process.env.NODE_ENV !== 'production')require('./mock/index')
 
 Vue.config.productionTip = false
 Vue.use(iView)

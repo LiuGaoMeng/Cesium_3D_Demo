@@ -10,11 +10,11 @@ export const routerMap =[
     meta: {
       title: 'Cesium实列'
     },
-    redirect: 'map',
+    redirect: 'initmap',
     children:[
       {
-        name: 'map',
-        path: 'map',
+        name: 'initmap',
+        path: 'initmap',
         component: () => import(/* webpackChunkName: "about" */ '@/components/Map.vue'),
         meta:{
           title:'地图'
