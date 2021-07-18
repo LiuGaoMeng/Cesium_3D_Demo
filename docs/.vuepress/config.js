@@ -1,11 +1,10 @@
 module.exports = {
     base:'/',
-    title: 'AUI',
-    description: 'AUI',
+    title: 'Cesium_DEMO',
+    description: 'Cesium_DEMO',
     themeConfig: {
       nav: [
         { text: 'Home', link: '/' },
-        { text: 'npm私服', link: 'http://192.168.31.125:4873' },
       ],
       sidebar: [
           {
