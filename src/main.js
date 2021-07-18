@@ -1,21 +1,25 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store'
-import iView from 'iview'
-import 'iview/dist/styles/iview.css'
+import router from "./router";
 import Element from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css';
+import 'element-ui/lib/theme-chalk/index.css'
+import hljs from 'highlight.js';
+import 'highlight.js/styles/github.css';
+import ViewUI from 'view-design';
+import 'view-design/dist/styles/iview.css';
+import VueHighlightJS from 'vue-highlightjs'
 import 'cesium/Widgets/widgets.css'
 
-if (process.env.NODE_ENV !== 'production')require('./mock/index')
+
+// Tell Vue.js to use vue-highlightjs
+Vue.use(VueHighlightJS)
+Vue.use(ViewUI);
+Vue.use(Element, { size: 'small' })
+Vue.use(hljs.vuePlugin);
 
 Vue.config.productionTip = false
-Vue.use(iView)
-Vue.use(Element)
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+  render: h => h(App),
+  router
 }).$mount('#app')

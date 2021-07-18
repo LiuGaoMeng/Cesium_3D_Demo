@@ -1,43 +1,38 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import { routes } from './router'
-import store from '@/store'
-import { setTitle, setToken, getToken } from '@/lib/util'
-import clonedeep from 'clonedeep'
+import VueRouter from 'vue-router'
+import Test from '../views/Test.vue'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-const router = new Router({
-  // mode: 'history',
-  mode: 'hash',
-  base: process.env.BASE_URL,
+const routes = [
+  {
+    path: '/',
+    name: 'Develop',
+    meta:'开发',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Develop.vue')
+  },
+  {
+    path: '/Install',
+    name: 'Install',
+    meta:'安装',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Install.vue')
+  },
+  {
+    path: '/Test',
+    name: 'Test',
+    meta:'测试组件',
+    component: Test
+  },
+  {
+    path: '/Calendar',
+    name: 'Calendar',
+    meta:'日历',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Calendar.vue')
+  },
+]
+
+const router = new VueRouter({
   routes
 })
-
-// 路由全局守卫，用于权限验证，页面title设置
-router.beforeEach( ( to, from, next ) => {
-  to.meta && setTitle(to.meta.title)
-  const token = getToken()
-  if (token) {
-    if (!store.state.router.hasGetRules) {
-      store.dispatch('authorization').then(rules => {
-        store.dispatch('concatRoutes', rules).then(routers => {
-          router.addRoutes(clonedeep(routers))
-          next({ ...to, replace: true })
-        }).catch(() => {
-          next({ name: 'login' })
-        })
-      }).catch(() => {
-        setToken('')
-        next({ name: 'login' })
-      })
-    } else {
-      next()
-    }
-  } else {
-    if (to.name === 'login') next()
-    else next({ name: 'login' })
-  }
-} )
 
 export default router

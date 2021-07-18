@@ -1,28 +1,45 @@
-# 组件开发
-
+---
+title: '组件开发'
+---
 ## 项目初始化
 ```
 npm install
 ```
 
 ### 项目运行
+> 测试组件，展示组建文档
 ```
 npm run serve
 ```
 ### 组件文档运行
+> 用vuepress更好展示组件文档
 ```
 npm run docs:dev
 ```
-
-### 项目打包UI包
+## 目录结构
 ```
-npm run build
+.
+├─ dist 打包后的文件夹
+│   ├─ aui.umd.min.js
+│   └─ aui.css
+│ 
+├─ docs 组件文档相关  -更好展示组件文档
+│   ├─ .vuepress  
+│   │    ├─ config.js 组件文档配置文件 
+│   │    └─ components 可在README.md文件里能使用里面的组件
+│   ├─ static  
+│   └─ views 组件文档界面
+│ 
+├─ src 文档相关
+│   ├─ aui 打包的入口 -新组件需要在此添加
+│   ├─ components 开发的组件
+│   ├─ router
+│   └─ views 项目界面  -组件测试，展示组件文档
+│
+└─ package.json  -发布时需要更改版本号 
 ```
-- 打包文件入口 src/aui/index.js
 
-- 打包后的文件夹 dist
-
-### 私有npm使用
+## 私有npm使用
 
 - 安装nrm
 ```
@@ -55,50 +72,9 @@ npm update aui(包名)
 ```
 - 访问私有npm ---地址http://192.168.31.125:4873
 
-# aui
-
-> aui 组件
-
-
-## 项目安装
-
-安装
-
-```
-npm install aui
-```
-
-
-## 组件使用
-
-```
-import aui from 'aui'
-import 'aui/dist/aui.css'
-Vue.use(aui)
-```
-
-- 其他依赖按需引入
-
-```vue
-<template>
-  <div class="hello">
-    <Msg :name="'test'"></Msg>
-    <AgTest :name="'test2222'"></AgTest>
-  </div>
-</template>
-
-<script>
-export default {
-  name: 'HelloWorld',
-}
-</script>
-```
-
-
-
 ## 组件开发
 
-- svn下载项目 components文件夹下开发组件
+- components文件夹下开发组件
 ```vue
 <template>
     <div>
@@ -127,7 +103,7 @@ export default {
 </script>
 ```
 
-## 组件打包
+## 组件打包发布
 - 需要打包的文件 aui文件夹下index.js
 
 ```js
@@ -152,7 +128,7 @@ npm run build
 
 - 打包后文件夹dist
 
-## 组件发布
+### 组件发布
 
 - 更改package.json的版本号,登录：npm login
 

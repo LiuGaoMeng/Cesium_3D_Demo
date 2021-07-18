@@ -1,63 +1,68 @@
 <template>
-  <div>
-    <!-- <div class="icon-img">
-      <img :src="logoSrc" />
-    </div> -->
-    <Menu ref="menu" :active-name="$route.name" theme="dark" width="auto" :open-names="openNames">
-      <template v-for="RouterItem in routers">
-        <template v-if="RouterItem.children!=undefined && RouterItem.children.length>0">
-          <Submenu  :name="RouterItem.name"  :key='RouterItem.name'>
-            <template slot="title">
-                <span>{{RouterItem.name}}</span>
-            </template>
-            <MenuItem :name="item.name" :to="RouterItem.path+item.path" v-for="item in RouterItem.children" :key='item.name'><span>{{item.meta.title}}</span></MenuItem>
-            
-        </Submenu>
-        </template>
-        <template v-else>
-           <MenuItem :name="RouterItem.name"  :to="'/'+RouterItem.path" :key='RouterItem.name'><span>{{RouterItem.meta.title}}</span></MenuItem>
-        </template>
-      </template>
-    </Menu>
-  </div>
+  <ul class="menu">
+    <li class="menu-item" v-for="(item,index) in menuArr" :key="index" :class="{'active':item.meta==activeItem}" @click="changeItem(item.meta)">
+        <router-link :to="item.path">{{item.meta}}</router-link>
+    </li>
+  </ul>
 </template>
 
-<script>
-  import { mapState } from 'vuex'
-  import { getOpenArrByName } from '@/lib/util'
-  export default {
-    name:'slidermenu',
-    data() {
-      return {
-        logoSrc: require('@/assets/img/logo.png')
-      }
-    },
-    computed:{
-      ...mapState({
-      routers: state => state.router.routers.filter(item => {
-        
-        return item.path !== '*' && item.name !== 'login'
-      })
-    }),
-    openNames () {
-      return getOpenArrByName(this.$route.name, this.routers)
-    }
-    },
-    watch: {
-    openNames () {
-      this.$nextTick(() => {
-        this.$refs.menu.updateOpened()
-      })
-    }
-  },
-  }
-</script>
+<script> 
 
-<style scoped lang='less'>
-  .icon-img{
+export default {
+  name: 'Menu',
+  data() {
+      return {
+          menuArr: [],
+          activeItem:'开发'
+      }
+  },
+  mounted() {
+      this.menuArr = this.$router.options.routes
+  },
+  methods: {
+      changeItem(text){
+          this.activeItem = text
+      }
+  },
+}
+</script>
+<style scoped>
+.menu{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+.menu-item{
+    list-style: none;    
+    position: relative;
+}
+.menu-item a {
+    font-size: 16px;
+    color: #333;
+    line-height: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    display: block;
+    position: relative;
     text-align: center;
-    img{
-      margin-top: 20px;
-    }
-  }
+}
+.menu-item a:hover{
+    color: #2b85e4;
+}
+.menu-item.active a{
+    color: #2b85e4;
+    background: #f0faff;
+}
+.menu-item.active:after{
+    content: "";
+    display: block;
+    width: 2px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #2d8cf0;
+}
 </style>
