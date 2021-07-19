@@ -13,7 +13,7 @@ export default {
   data() {
       return {
           menuArr: [],
-          activeItem:'开发'
+          activeItem:'地图'
       }
   },
   mounted() {
@@ -31,6 +31,7 @@ export default {
     height: 100%;
     padding: 0;
     margin: 0;
+    background-color: antiquewhite;
 }
 .menu-item{
     list-style: none;    
@@ -55,6 +56,12 @@ export default {
     color: #2b85e4;
     background: #f0faff;
 }
+
+.menu-item.active li{
+    /* color: #2b85e4; */
+    background-color: #2b85e4;
+}
+
 .menu-item.active:after{
     content: "";
     display: block;

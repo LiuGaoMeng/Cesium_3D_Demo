@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion: liugm
+ * @version: 1.0
+ * @Author: liugm
+ * @Date: 2021-07-19 09:00:25
+ * @LastEditors: liugm
+ * @LastEditTime: 2021-07-19 18:29:38
+-->
 <template>
   <div id="cesiumContainer"></div>
 </template>
@@ -16,7 +24,7 @@ export default {
     initMap() {
       Cesium.Ion.defaultAccessToken =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NWI5MGUzNi1mYWI3LTQzY2QtOGI0Ni0xZWYyNTAxNGM4N2MiLCJpZCI6MTI1OTgsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NjE0NDkyNTV9.hBH0PGSnKErc_yNhIePASUkr3QPDoo0KDX9uLpNBUns";
-      var viewer = new Cesium.Viewer("cesiumContainer", {
+      let viewer = new Cesium.Viewer("cesiumContainer", {
         // animation:false,       //动画
         // homeButton:true,       //home键
         // geocoder:true,         //地址编码
@@ -49,6 +57,14 @@ export default {
         // }),
 
       });
+      let entity=viewer.entities.add({
+        position:Cesium.Cartesian3.fromDegrees(30,119),
+        point:{
+          color:Cesium.Color.RED,
+          pixelSize:100
+        }
+      })
+      viewer.zoomTo(entity)
     },
   },
 };

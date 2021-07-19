@@ -37,7 +37,7 @@ export default {
         // imageryProviderViewModels:Cesium.createDefaultImageryProviderViewModels(),//可供baseLayerPicker选择的图像图层 ProviderVuewModel数组
         // selectedTerrianProviderViewModel:undefined,//当前地形图层的显示模型，仅baseLayerPicker 设为true 有意义
         // terrainProviderViewModels: Cesium.createDefaultTerrianProviderViewModels(),//可供baseLayerPicker选择的地形图层ProviderViewModel数组。仅当baseLayerPicker设置为true时，此值才有效。
-        // terrainProvider:new Cesium.EllipsoidTerrainProvider(),//地形图形提供者，仅baseLayerPicker为false才有意义
+        terrainProvider:new Cesium.EllipsoidTerrainProvider(),//地形图形提供者，仅baseLayerPicker为false才有意义
         //  skyBox:new Cesium.SkyBox({
         //    sources:{}
         //  }),//用于渲染 星空的SkyBox
