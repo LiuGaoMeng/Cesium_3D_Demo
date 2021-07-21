@@ -3,7 +3,7 @@
  * @version: 1.0
  * @Author: liugm
  * @Date: 2021-07-19 09:00:25
- * @LastEditors: liugm
+ * @LastE s: liugm
  * @LastEditTime: 2021-07-19 18:29:38
 -->
 <template>
@@ -25,17 +25,7 @@ export default {
       Cesium.Ion.defaultAccessToken =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NWI5MGUzNi1mYWI3LTQzY2QtOGI0Ni0xZWYyNTAxNGM4N2MiLCJpZCI6MTI1OTgsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NjE0NDkyNTV9.hBH0PGSnKErc_yNhIePASUkr3QPDoo0KDX9uLpNBUns";
       let viewer = new Cesium.Viewer("cesiumContainer", {
-        // animation:false,       //动画
-        // homeButton:true,       //home键
-        // geocoder:true,         //地址编码
         baseLayerPicker: false, //图层选择控件
-        // timeline:false,        //时间轴
-        // fullscreenButton:true, //全屏显示
-        // infoBox:true,         //点击要素之后浮窗
-        // sceneModePicker:true,  //投影方式  三维/二维
-        // navigationInstructionsInitiallyVisible:false, //导航指令
-        // navigationHelpButton:false,     //帮助信息
-        // selectionIndicator:false, // 选择
         UrlTemplateImageryProvider:new Cesium.WebMapTileServiceImageryProvider({
               url:
                 "http://t0.tianditu.com/vec_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=d6a72a78a43a2c17294b72ab26354cd6",
@@ -44,23 +34,12 @@ export default {
               format: "image/jpeg",
               tileMatrixSetID: "GoogleMapsCompatible",
               show: false
-              // maximumLevel: 18
-            }),
-        // imageryProvider: new Cesium.WebMapTileServiceImageryProvider({
-        //   url: "http://t0.tianditu.com/vec_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=d6a72a78a43a2c17294b72ab26354cd6",
-        //   layer: "tdtImgBasicLayer",
-        //   style: "default",
-        //   format: "image/jpeg",
-        //   tileMatrixSetID: "GoogleMapsCompatible",
-        //   show: false,
-        //   // maximumLevel: 18
-        // }),
-
+            })
       });
       let entity=viewer.entities.add({
         position:Cesium.Cartesian3.fromDegrees(30,119),
         point:{
-          color:Cesium.Color.RED,
+          color:Cesium.Color.PINK,
           pixelSize:100
         }
       })

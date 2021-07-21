@@ -30,7 +30,8 @@ export default {
         // navigationHelpButton:false,     //帮助信息
         // selectionIndicator:false, // 选择
         // clock:new Cesium.Clock(),//用于控制当前时间的时钟对象
-        //shouldAnimate:true,//是否显示光照投射的阴影
+        //shouldAnimate:true,//自动播放动画控件
+        // shadows:true,//是否显示光照投射的阴影
         // terrainShadows:Cesium.ShadowMode.RECEIVE_ONLY,//地质接收阴影
         sceneMode:Cesium.SceneMode.SCENE3D,//SCENE3D:3d模式 、  SCENE2D：2d模式 、COLUMBUS_VIEW：哥伦布查看模式、  MORPHING：在各种模式之间进行变形
         //selectedImageryProviderViewModel:undefined,//当前图像图层的显示模型，仅baseLayer为true有意义
@@ -44,6 +45,7 @@ export default {
         //  fullscreenElement:document.body,//点击全屏按钮时选的的HTML元素
         //  showRenderLoopErrors:false,//设置为true，将再一个HTML面板中显示错误信息
         //  dataSources:new Cesium.DataSourceCollection(),//需要进行可视化的数据源集合
+        // showRenderLoopErrors:false,//设置为true，将在一个HTML面板中显示错误信息
          UrlTemplateImageryProvider:new Cesium.WebMapTileServiceImageryProvider({
               url:
                 "http://t0.tianditu.com/vec_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=d6a72a78a43a2c17294b72ab26354cd6",
@@ -66,6 +68,7 @@ export default {
             // }),
 
       });
+      viewer._cesiumWidget._creditContainer.style.display="none" //左下角cesium 图标隐藏，去除版权信息
     },
   },
 };
