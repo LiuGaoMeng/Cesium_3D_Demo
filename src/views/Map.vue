@@ -1,5 +1,15 @@
+<!--
+ * @Descripttion: liugm
+ * @version: 1.0
+ * @Author: liugm
+ * @Date: 2021-07-22 14:27:34
+ * @LastEditors: liugm
+ * @LastEditTime: 2021-07-23 18:47:04
+-->
 <template>
-  <div id="cesiumContainer"></div>
+  <div id="cesiumContainer">
+    <Table :columns="columns1" :data="data1"></Table>
+  </div>
 </template>
 <script type="text/javascript">
 export default {
@@ -7,10 +17,50 @@ export default {
   data() {
     return {
       tiandituTk: "ebf64362215c081f8317203220f133eb",
+       columns1: [
+                    {
+                        title: 'Name',
+                        key: 'name'
+                    },
+                    {
+                        title: 'Age',
+                        key: 'age'
+                    },
+                    {
+                        title: 'Address',
+                        key: 'address'
+                    }
+                ],
+                data1: [
+                    {
+                        name: 'John Brown',
+                        age: 18,
+                        address: 'New York No. 1 Lake Park',
+                        date: '2016-10-03'
+                    },
+                    {
+                        name: 'Jim Green',
+                        age: 24,
+                        address: 'London No. 1 Lake Park',
+                        date: '2016-10-01'
+                    },
+                    {
+                        name: 'Joe Black',
+                        age: 30,
+                        address: 'Sydney No. 1 Lake Park',
+                        date: '2016-10-02'
+                    },
+                    {
+                        name: 'Jon Snow',
+                        age: 26,
+                        address: 'Ottawa No. 2 Lake Park',
+                        date: '2016-10-04'
+                    }
+                ]
     };
   },
   mounted() {
-    this.initMap();
+    //this.initMap();
   },
   methods: {
     initMap() {
@@ -48,7 +98,7 @@ export default {
         // showRenderLoopErrors:false,//设置为true，将在一个HTML面板中显示错误信息
          UrlTemplateImageryProvider:new Cesium.WebMapTileServiceImageryProvider({
               url:
-                "http://t0.tianditu.com/vec_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=d6a72a78a43a2c17294b72ab26354cd6",
+                "http://t0.tianditu.com/vec_c/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=d6a72a78a43a2c17294b72ab26354cd6",
               layer: "tdtImgBasicLayer",
               style: "default",
               format: "image/jpeg",

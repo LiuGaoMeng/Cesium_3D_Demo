@@ -4,7 +4,7 @@
  * @Author: liugm
  * @Date: 2021-07-19 09:00:25
  * @LastE s: liugm
- * @LastEditTime: 2021-07-19 18:29:38
+ * @LastEditTime: 2021-07-23 14:41:47
 -->
 <template>
   <div id="cesiumContainer"></div>
@@ -28,7 +28,7 @@ export default {
         baseLayerPicker: false, //图层选择控件
         UrlTemplateImageryProvider:new Cesium.WebMapTileServiceImageryProvider({
               url:
-                "http://t0.tianditu.com/vec_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=d6a72a78a43a2c17294b72ab26354cd6",
+                "http://t0.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=d6a72a78a43a2c17294b72ab26354cd6",
               layer: "tdtImgBasicLayer",
               style: "default",
               format: "image/jpeg",
