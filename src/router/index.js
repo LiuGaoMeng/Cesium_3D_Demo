@@ -14,8 +14,24 @@ const routes = [
   {
     path: '/Point',
     name: 'Point',
-    meta:'点实体',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Point.vue')
+    meta:'点Point',
+    component: () => import(/* webpackChunkName: "about" */ '../views/entity/Point.vue')
+  },
+  {
+    path: '/Box',
+    name: 'Box',
+    meta:'盒子Box',
+    component: () => import(/* webpackChunkName: "about" */ '../views/entity/Box.vue')
+  },{
+    path: '/Billboard',
+    name: 'Billboard',
+    meta:'广告牌',
+    component: () => import(/* webpackChunkName: "about" */ '../views/entity/Billboard.vue')
+  },{
+    path: '/Corridor',
+    name: 'Corridor',
+    meta:'走廊',
+    component: () => import(/* webpackChunkName: "about" */ '../views/entity/Corridor.vue')
   },
   // {
   //   path: '/Test',

@@ -4,7 +4,7 @@
  * @Author: liugm
  * @Date: 2021-07-19 09:00:25
  * @LastE s: liugm
- * @LastEditTime: 2021-07-23 14:41:47
+ * @LastEditTime: 2021-07-30 18:24:56
 -->
 <template>
   <div id="cesiumContainer"></div>
@@ -37,13 +37,13 @@ export default {
             })
       });
       let entity=viewer.entities.add({
-        position:Cesium.Cartesian3.fromDegrees(30,119),
+        position:Cesium.Cartesian3.fromDegrees(30,119,100000),
         point:{
           color:Cesium.Color.PINK,
           pixelSize:100
         }
       })
-      viewer.zoomTo(entity)
+      viewer.trackedEntity=entity
     },
   },
 };
