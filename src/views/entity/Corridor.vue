@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-07-30 18:25:13
 -->
 <template>
-<div id="cesiumContainer"></div>
+  <div id="cesiumContainer"></div>
 </template>
 <script>
 export default {
@@ -35,14 +35,38 @@ export default {
           }
         ),
       });
-        let entity = viewer.entities.add({
-          position: Cesium.Cartesian3.fromDegrees(30, 119, 100000),
-          point: {
-            color: Cesium.Color.PINK,
-            pixelSize: 100,
-          },
-        });
-       viewer.trackedEntity=entity
+      let entity = viewer.entities.add({
+        corridor: {
+          positions: Cesium.Cartesian3.fromDegreesArray([
+            //走廊走向数据，经纬度数据转为世界坐标
+            -100, 40, -105, 40, -105, 35, -110, 35, -110, 40, -115, 45,
+          ]),
+          width: 100000, //宽度必须设置
+          height: 200000, //高度 设置zIndex时注释
+          extrudedHeight: 2000, //拉伸高度  设置zIndex时注释
+          material: Cesium.Color.RED,
+          cornerType: Cesium.CornerType.ROUNDED, //拐角样式  ROUNDED：角有光滑的边缘、MITERE：拐角点是相邻边的交点  BEVELED：角被修剪
+          granularity: Cesium.Math.RADIANS_PER_DEGREE, //指定每个经度、纬度之间的距离
+          zIndex: 0, //层级 当为定义height和extrudeHeight且道路为静态时才有效
+        },
+      });
+      viewer.entities.add({
+        name:"corridor2",
+        corridor: {
+          positions: Cesium.Cartesian3.fromDegreesArray([
+            //走廊走向数据，经纬度数据转为世界坐标
+            -100.0, 40.0, -105, 40, -105, 35, -110, 35, -110, 40, -115, 40,
+          ]),
+          width: 100000, //宽度必须设置
+          height: 200000, //高度   设置zIndex时注释
+          extrudedHeight: 2000, //拉伸高度   设置zIndex时注释
+          material: Cesium.Color.BLUE,
+          cornerType: Cesium.CornerType.BEVELED, //拐角样式
+          granularity: Cesium.Math.RADIANS_PER_DEGREE, //指定每个经度、纬度之间的距离
+          zIndex: 1, //层级 当未定义height和extrudeHeight且道路为静态时才有效。
+        },
+      });
+      viewer.trackedEntity = entity;
     },
   },
 };
