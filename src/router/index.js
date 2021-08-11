@@ -32,6 +32,11 @@ const routes = [
     name: 'Corridor',
     meta:'走廊',
     component: () => import(/* webpackChunkName: "about" */ '../views/entity/Corridor.vue')
+  },{
+    path: '/Cylinder',
+    name: 'Cylinder',
+    meta:'圆柱',
+    component: () => import(/* webpackChunkName: "about" */ '../views/entity/Cylinder.vue')
   },
   // {
   //   path: '/Test',

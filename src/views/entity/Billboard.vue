@@ -67,6 +67,7 @@ export default {
 
                 }
             });
+            
             // viewer.trackedEntity=entity
 
             //   this.cloneEntity(entity,viewer)//复制

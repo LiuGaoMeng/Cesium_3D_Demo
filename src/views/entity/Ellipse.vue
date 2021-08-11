@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: "cylinder",
+  name: "ellipse",
   data() {
     return {};
   },
@@ -25,24 +25,14 @@ export default {
             tileMatrixSetID: "GoogleMapsCompatible",
             show: false,
           }
-        ),
-      });
-      let entity=viewer.entities.add({
-        position: Cesium.Cartesian3.fromDegrees(-114, 40, 0),
-        cylinder: {
-          length: 500000, //圆柱体高度
-          topRadius: 300000, //圆柱体顶部半径  可与底部半径不同 生成圆锥
-          bottomRadius: 300000, //圆柱体底部半径
-          material: Cesium.Color.RED,
-          fill:true,
-          outline:true,
-          outlineColor:Cesium.Color.BLUE,
-          outlineWidth:4,
-          slices: 100, //圆柱周围圆圈分断数  决定外表平滑程度即圆柱上、下圆上的点数。越多越平滑
-          numberOfVerticalLines: 100, //圆柱垂直线分段数  上、下圆上点的连接线的条数。可以小于slices的值  
-        },
-      });
-      viewer.trackedEntity=entity
+        )
+      })
+      viewer.entities.add({
+          // position:,
+          // ellipse:{
+
+          // }
+      })
     },
   },
 };
