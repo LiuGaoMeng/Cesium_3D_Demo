@@ -4,7 +4,7 @@
  * @Author: liugm
  * @Date: 2021-07-19 09:00:25
  * @LastE s: liugm
- * @LastEditTime: 2021-07-19 18:29:38
+ * @LastEditTime: 2021-08-20 16:51:08
 -->
 <template>
 <div id="cesiumContainer"></div>
@@ -67,6 +67,7 @@ export default {
 
                 }
             });
+            
             // viewer.trackedEntity=entity
 
             //   this.cloneEntity(entity,viewer)//复制

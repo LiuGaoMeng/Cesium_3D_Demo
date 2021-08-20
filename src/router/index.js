@@ -4,7 +4,7 @@
  * @Author: liugm
  * @Date: 2021-07-26 09:15:13
  * @LastEditors: liugm
- * @LastEditTime: 2021-08-02 08:59:31
+ * @LastEditTime: 2021-08-20 17:06:53
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -43,8 +43,13 @@ const routes = [
   },{
     path: '/Cylinder',
     name: 'Cylinder',
-    meta:'圆柱体',
+    meta:'圆柱',
     component: () => import(/* webpackChunkName: "about" */ '../views/entity/Cylinder.vue')
+  },{
+    path: '/Ellipse',
+    name: 'Ellipse',
+    meta:'圆/椭圆',
+    component: () => import(/* webpackChunkName: "about" */ '../views/entity/Ellipse.vue')
   },
   // {
   //   path: '/Test',

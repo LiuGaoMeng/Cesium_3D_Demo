@@ -2,16 +2,17 @@
  * @Descripttion: liugm
  * @version: 1.0
  * @Author: liugm
- * @Date: 2021-08-01 22:55:59
+ * @Date: 2021-08-20 14:04:56
  * @LastEditors: liugm
- * @LastEditTime: 2021-08-02 08:59:59
+ * @LastEditTime: 2021-08-20 17:34:20
 -->
 <template>
   <div id="cesiumContainer"></div>
 </template>
 <script>
+import ellipse from "./img/heart.png"
 export default {
-  name: "cylinder",
+  name: "ellipse",
   data() {
     return {};
   },
@@ -33,24 +34,33 @@ export default {
             tileMatrixSetID: "GoogleMapsCompatible",
             show: false,
           }
-        ),
-      });
+        )
+      })
       let entity=viewer.entities.add({
-        position: Cesium.Cartesian3.fromDegrees(-114, 40, 0),
-        cylinder: {
-          length: 500000, //圆柱体高度
-          topRadius: 300000, //圆柱体顶部半径  可与底部半径不同 生成圆锥
-          bottomRadius: 300000, //圆柱体底部半径
-          material: Cesium.Color.RED,
-          fill:true,
-          outline:true,
-          outlineColor:Cesium.Color.BLUE,
-          outlineWidth:4,
-          slices: 100, //圆柱周围圆圈分断数  决定外表平滑程度即圆柱上、下圆上的点数。越多越平滑
-          numberOfVerticalLines: 100, //圆柱垂直线分段数  上、下圆上点的连接线的条数。可以小于slices的值  
-        },
-      });
-      viewer.trackedEntity=entity
+          position:Cesium.Cartesian3.fromDegrees(-111,40,150000),
+          name:"ellipse",
+          ellipse:{
+            semiMinorAxis:300000,//短半轴
+            semiMajorAxis:300000,//长半轴  短半轴与长半轴相等为圆
+            height:200000,
+            material:Cesium.Color.GREEN,
+            rotation:Cesium.Math.PI_OVER_FOUR
+          }
+      })
+      viewer.entities.add({
+        position:Cesium.Cartesian3.fromDegrees(-100,40,150000),
+        name:"ellipse",
+        ellipse:{
+          semiMinorAxis:200000,//短半轴，注意蒜瓣周如果比长半轴小就是椭圆
+          semiMajorAxis:300000,//长半轴， 注意长半轴如果比短半轴小会报错
+          // height:200000,
+          extrudedHeight:20000,//拉伸高度，高度和拉伸高度只能存在一个，表面材质也会拉伸
+          material:ellipse,//材质
+          rotation:Cesium.Math.toRadians(90),
+          stRotation:Cesium.Math.toRadians(90) //纹理同rotation旋转一致
+        }
+      })
+      viewer.trackerEntity=entity
     },
   },
 };
