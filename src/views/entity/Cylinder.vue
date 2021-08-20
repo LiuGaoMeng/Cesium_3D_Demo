@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion: liugm
+ * @version: 1.0
+ * @Author: liugm
+ * @Date: 2021-08-01 22:55:59
+ * @LastEditors: liugm
+ * @LastEditTime: 2021-08-02 08:59:59
+-->
 <template>
   <div id="cesiumContainer"></div>
 </template>
@@ -34,12 +42,12 @@ export default {
           topRadius: 300000, //圆柱体顶部半径  可与底部半径不同 生成圆锥
           bottomRadius: 300000, //圆柱体底部半径
           material: Cesium.Color.RED,
-          fill:false,
+          fill:true,
           outline:true,
           outlineColor:Cesium.Color.BLUE,
           outlineWidth:4,
-          slices: 10, //圆柱周围圆圈分断数  决定外表平滑程度
-          numberOfVerticalLines: 8, //圆柱垂直线分段数
+          slices: 100, //圆柱周围圆圈分断数  决定外表平滑程度
+          numberOfVerticalLines: 100, //圆柱垂直线分段数
         },
       });
       viewer.trackedEntity=entity

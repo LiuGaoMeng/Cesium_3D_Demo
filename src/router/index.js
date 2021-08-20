@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: liugm
+ * @version: 1.0
+ * @Author: liugm
+ * @Date: 2021-07-26 09:15:13
+ * @LastEditors: liugm
+ * @LastEditTime: 2021-08-02 08:59:31
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
@@ -32,6 +40,11 @@ const routes = [
     name: 'Corridor',
     meta:'走廊',
     component: () => import(/* webpackChunkName: "about" */ '../views/entity/Corridor.vue')
+  },{
+    path: '/Cylinder',
+    name: 'Cylinder',
+    meta:'圆柱体',
+    component: () => import(/* webpackChunkName: "about" */ '../views/entity/Cylinder.vue')
   },
   // {
   //   path: '/Test',
