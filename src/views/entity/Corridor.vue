@@ -35,7 +35,7 @@ export default {
           }
         ),
       });
-      let entity = viewer.entities.add({
+      let entityCorridor = viewer.entities.add({
         corridor: {
           positions: Cesium.Cartesian3.fromDegreesArray([
             //走廊走向数据，经纬度数据转为世界坐标
@@ -66,7 +66,7 @@ export default {
           zIndex: 1, //层级 当未定义height和extrudeHeight且道路为静态时才有效。
         },
       });
-      viewer.trackedEntity = entity;
+      viewer.trackedEntity = entityCorridor;
     },
   },
 };

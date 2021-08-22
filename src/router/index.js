@@ -50,8 +50,23 @@ const routes = [
     name: 'Ellipse',
     meta:'圆/椭圆',
     component: () => import(/* webpackChunkName: "about" */ '../views/entity/Ellipse.vue')
+  },{
+    path: '/Ellipsoid',
+    name: 'Ellipsoid',
+    meta:'球体/椭球体',
+    component: () => import(/* webpackChunkName: "about" */ '../views/entity/Ellipsoid.vue')
+  },{
+    path: '/Label',
+    name: 'Label',
+    meta:'标签',
+    component: () => import(/* webpackChunkName: "about" */ '../views/entity/Label.vue')
+  },{
+    path: '/Model',
+    name: 'Model',
+    meta:'模型',
+    component: () => import(/* webpackChunkName: "about" */ '../views/entity/Model.vue')
   },
-  // {
+  // {   Label.vue  
   //   path: '/Test',
   //   name: 'Test',
   //   meta:'测试组件',
