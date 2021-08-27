@@ -4,7 +4,7 @@
  * @Author: liugm
  * @Date: 2021-07-19 09:00:25
  * @LastE s: liugm
- * @LastEditTime: 2021-07-19 18:29:38
+ * @LastEditTime: 2021-08-27 15:35:16
 -->
 <template>
   <div id="cesiumContainer"></div>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "Point",
+  name: "Model",
   data() {
     return {
       viewer: null,
@@ -27,6 +27,7 @@ export default {
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NWI5MGUzNi1mYWI3LTQzY2QtOGI0Ni0xZWYyNTAxNGM4N2MiLCJpZCI6MTI1OTgsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NjE0NDkyNTV9.hBH0PGSnKErc_yNhIePASUkr3QPDoo0KDX9uLpNBUns";
        this.viewer = new Cesium.Viewer("cesiumContainer", {
         baseLayerPicker: false, //图层选择控件
+        shouldAnimate:true,//自动播放动画控件
         UrlTemplateImageryProvider: new Cesium.WebMapTileServiceImageryProvider(
           {
             url: "http://t0.tianditu.com/vec_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=d6a72a78a43a2c17294b72ab26354cd6",

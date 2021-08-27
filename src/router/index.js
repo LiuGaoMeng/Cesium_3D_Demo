@@ -4,7 +4,7 @@
  * @Author: liugm
  * @Date: 2021-07-26 09:15:13
  * @LastEditors: liugm
- * @LastEditTime: 2021-08-20 17:06:53
+ * @LastEditTime: 2021-08-27 15:34:03
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -65,6 +65,11 @@ const routes = [
     name: 'Model',
     meta:'模型',
     component: () => import(/* webpackChunkName: "about" */ '../views/entity/Model.vue')
+  },{
+    path: '/Path',
+    name: 'Path',
+    meta:'路径',
+    component: () => import(/* webpackChunkName: "about" */ '../views/entity/Path.vue')
   },
   // {   Label.vue  
   //   path: '/Test',
